@@ -31,4 +31,25 @@ public class LogginLabTest {
             }
         }
     }
+   @org.junit.Test
+   public void thresholdReached(){
+    int threshold = 9;
+
+    LogginLab lab = new LogginLab();
+    lab.setThreshold(threshold);
+
+    for(Integer i = threshold-1; i <= threshold+1; i++){
+        if (lab.thresholdReached(i)) {
+            logger.log(Level.INFO, "Limit exceed the threshold! " + i  );
+            assertTrue(lab.thresholdReached(i));
+        } else {
+            logger.log(Level.INFO, "Threshold is not exceeded ! " + i);
+            assertFalse(lab.thresholdReached(i));
+
+
+        }
+    }
+
+   }
+
 }
